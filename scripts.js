@@ -42,8 +42,15 @@ document.querySelector(".search button").addEventListener("click", function() {
     weather.search();
 });
 
+// 7. Add an event listener for the enter keypress after a city is typed into the search bar
+
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {
     if(event.key == "Enter") {
         weather.search();
     }
-})
+});
+
+// 8. When the page initially loads, call the weather.fetchWeather function for an initial city
+
+
+weather.fetchWeather("Billings");

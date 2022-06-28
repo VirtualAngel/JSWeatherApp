@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
     margin: 0;
     background-color: rgb(15, 15, 15);
     background-image: url('https://source.unsplash.com/random/1600x900/?landscape, montana');
@@ -53,6 +53,10 @@ input.search-bar {
 
 input.search-bar:hover {
     background-color: rgba(245, 245, 245, .9);
+}
+
+input.search-bar::placeholder {
+    color: black;
 }
 
 button {
