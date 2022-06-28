@@ -3,16 +3,30 @@
 // 2. Fetch the weather url from openweathermap's generated URL and console.log it
 // 3. Edit the fetchWeather function to pass in any city and the appKey
 // 4. Create a new function to display the weather on the page
+// 5. Use document.querySelector + innerText, src, etc. to actually display on page and not use console.log
 let weather = {
     "apiKey": "6ebd44e559df99375a356aa98f5496f3",
-    fetchWeather: function () {
+    fetchWeather: function (city) {
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q="
              + city 
              + "&units=imperial&appid=" 
-             + appKey
+             + this.apiKey
              )
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => this.displayWeather(data));
     },
+    displayWeather: function(data) {
+        const {name} = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        console.log(name, icon, description, temp, humidity, speed);
+        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon +".png";
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temp").innerText = temp + "°F";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind Speed: " + speed + " mph";
+    }
 };
