@@ -4,6 +4,7 @@
 // 3. Edit the fetchWeather function to pass in any city and the appKey
 // 4. Create a new function to display the weather on the page
 // 5. Use document.querySelector + innerText, src, etc. to actually display on page and not use console.log
+// 9. Adds a city-specific photo from unsplash
 
 let weather = {
     "apiKey": "6ebd44e559df99375a356aa98f5496f3",
@@ -29,6 +30,7 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " + speed + " mph";
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/random/1600x900/?" + name + "')"
     },
 
     search: function() {
@@ -51,6 +53,5 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
 });
 
 // 8. When the page initially loads, call the weather.fetchWeather function for an initial city
-
 
 weather.fetchWeather("Billings");
