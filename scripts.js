@@ -4,6 +4,7 @@
 // 3. Edit the fetchWeather function to pass in any city and the appKey
 // 4. Create a new function to display the weather on the page
 // 5. Use document.querySelector + innerText, src, etc. to actually display on page and not use console.log
+
 let weather = {
     "apiKey": "6ebd44e559df99375a356aa98f5496f3",
     fetchWeather: function (city) {
@@ -28,5 +29,15 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " + speed + " mph";
+    },
+
+    search: function() {
+        this.fetchWeather(document.querySelector(".search-bar").value);
     }
 };
+
+// 6. Make the search bar work by adding the function above and an an event listener below
+
+document.querySelector(".search button").addEventListener("click", function() {
+    weather.search();
+})

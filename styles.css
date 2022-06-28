@@ -72,4 +72,14 @@ button:hover {
 
 h1.temp {
     margin:0;
+    margin-bottom: .5em;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.description {
+    text-transform: capitalize;
 }
